@@ -1,0 +1,5 @@
+.sticky-menubar {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure the sticky element stays above other content */
+  }
