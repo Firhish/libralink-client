@@ -9,7 +9,7 @@ bootstrapApplication(AppComponent,
   {
     providers: [
       provideProtractorTestingSupport(),
-      provideRouter(routes)
+      provideRouter(routes),
     ]
   }
 ).catch(err => console.error(err));
