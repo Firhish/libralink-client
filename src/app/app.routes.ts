@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { StudentWelcomeComponent } from './pages/student/welcome/welcome.component';
 import { TeacherWelcomeComponent } from './pages/teacher/welcome/welcome.component';
 import { AdminWelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
 
@@ -33,6 +34,11 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent,
         title: 'Login'
+    },
+    {
+        path: 'register',
+        component: RegisterComponent,
+        title: 'Register'
     },
     {
         path: 'student/welcome',
