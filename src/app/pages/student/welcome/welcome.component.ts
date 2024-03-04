@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-welcome',
+  selector: 'app-student-welcome',
   standalone: true,
   imports: [],
   templateUrl: './welcome.component.html',

@@ -8,11 +8,20 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  serverHost = "http://localhost:8080";
+  serverHost = "http://localhost:8080/user";
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.serverHost + "/user/get-all")
+    return this.http.get<User[]>(this.serverHost + "/get-all")
   }
+
+  loginByEmailAndPassword(input:any): Observable<any>{
+    return this.http.post(this.serverHost + "/login", input);
+  }
+
+  addUser(user: any): Observable<any>{
+    return this.http.post(this.serverHost + "/add", user);
+  }
+
 }
