@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoanDetailService } from '../../../service/loanDetail.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
@@ -31,7 +31,7 @@ export class StudentApplicationComponent implements OnInit{
   allBooks:any[] = [];
   visible: boolean = false;
 
-  constructor(private route: ActivatedRoute,private loanDetailService: LoanDetailService, private bookService:BookService){}
+  constructor(private router: Router, private route: ActivatedRoute,private loanDetailService: LoanDetailService, private bookService:BookService){}
 
   ngOnInit(): void {
     this.currUserId = this.route.snapshot.paramMap.get('currUserId');
@@ -73,5 +73,11 @@ export class StudentApplicationComponent implements OnInit{
       window.location.reload();
     })
     // alert("Are you sure want to delete the loan application?")
+  }
+
+  navigateToBookList() {
+    const currUserId = this.currUserId;
+    console.log(currUserId);
+    this.router.navigate(['student/book-list',{currUserId}]);
   }
 }
