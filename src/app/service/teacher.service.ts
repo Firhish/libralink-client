@@ -7,16 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class TeacherService {
 
-  serverHost = "http://localhost:8080/teacher";
+  serverHost = "http://localhost:8080/";
 
-  constructor(private http: HttpClient) {}
-
-  getUsers(): Observable<any>{
-    return this.http.get<any>(this.serverHost + "/get-all")
-  }
-
-  addTeacher(teacher: any): Observable<any>{
-    return this.http.post(this.serverHost + "/add", teacher);
-  }
+  constructor() {}
 
 }

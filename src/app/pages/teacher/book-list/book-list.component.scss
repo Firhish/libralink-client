@@ -1,0 +1,28 @@
+// .main-container{
+//     width: 80vw;
+//     height: 120vh;
+//     display: flex;
+//     // justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+// }
+
+.main-container{
+    width: 100vw;
+}
+
+
+button {
+    background-color: #FF0000; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px; /* Increase the padding to make the button larger */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; /* Increase the font size to make the button text larger */
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}

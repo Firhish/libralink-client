@@ -8,16 +8,24 @@ import { Publisher } from '../model/publisher';
 })
 export class PublisherService {
 
-  serverHost = "http://localhost:8080/publisher";
+  serverHost = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
 
   getPublishers(): Observable<Publisher[]>{
-    return this.http.get<Publisher[]>(this.serverHost + "/get-all")
+    return this.http.get<Publisher[]>(this.serverHost + "/publisher/get-all")
   }
 
   getPublisherById(id:string): Observable<Publisher>{
-    return this.http.get<Publisher>(this.serverHost + "/get-by-id/"+id)
+    return this.http.get<Publisher>(this.serverHost + "/publisher/get-by-id/"+id)
+  }
+
+  addPublisher(publisher: any): Observable<any>{
+    return this.http.post(this.serverHost + "/publisher/add", publisher)
+  }
+
+  deletePublisher(id:string|null): Observable<any>{
+    return this.http.delete<any>(this.serverHost + "/publisher/delete-by-id/" + id)
   }
   
 }

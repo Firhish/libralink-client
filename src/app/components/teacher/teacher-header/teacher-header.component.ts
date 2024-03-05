@@ -22,7 +22,16 @@ export class TeacherHeaderComponent {
   items = [
     {
       label: 'Book List',
-      command: () => this.navigateToBookList(),
+      items: [
+        {
+          label: 'Book List',
+          command: () => this.navigateToBookList(),
+        },
+        {
+          label: 'Add Book List',
+          command: () => this.navigateToFormList(),
+        }
+      ]
     },
     {
       label: 'Student Application',
@@ -54,6 +63,12 @@ export class TeacherHeaderComponent {
     const currUserId = this.currUserId;
     console.log(currUserId);
     this.router.navigate(['teacher/book-list',{currUserId}]);
+  }
+
+  private navigateToFormList() {
+    const currUserId = this.currUserId;
+    console.log(currUserId);
+    this.router.navigate(['teacher/book-list/form',{currUserId}]);
   }
 
   private navigateToStudentApplication() {
