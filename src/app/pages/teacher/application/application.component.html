@@ -1,6 +1,25 @@
-<p>application works!</p>
+<app-teacher-header [currUserId]="userId"></app-teacher-header>
 
 <div class="main-container">
+    <h1>Student's Application</h1>
+   
+    <ng-container *ngFor="let loanDetail of loanDetails">
+        <div *ngIf="loanDetail.status === 'PENDING'" class="application-box">
+            <p-card header={{getUserUsername(loanDetail.userId)}} subheader={{getBookTitle(loanDetail.bookId)}} [style]="{ width: '1000px' }">     
+                <ng-template pTemplate="footer">
+                    <div class="button">
+                        <!-- <p-button label="ACCEPT" icon="pi pi-check"></p-button> -->
+                        <p-button label="ACCEPT" icon="pi pi-check" (click)="acceptLoan(loanDetail.loanId)"></p-button>
+                        <p-button label="REJECT" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+    </ng-container>
+
+</div>
+
+
 
     <!-- <div class="card">
         <p-table [value]="loanDetails" [tableStyle]="{ 'min-width': '50rem' }">
@@ -18,22 +37,6 @@
             </ng-template>
         </p-table>
     </div> -->
-    
-    <ng-container *ngFor="let loanDetail of loanDetails">
-        <div class="application-box">
-            <p-card header={{getUserUsername(loanDetail.userId)}} subheader={{getBookTitle(loanDetail.bookId)}} [style]="{ width: '1000px' }">     
-                <ng-template pTemplate="footer">
-                    <div class="button">
-                        <p-button label="ACCEPT" icon="pi pi-check"></p-button>
-                        <p-button label="REJECT" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-                    </div>
-                </ng-template>
-            </p-card>
-        </div>
-    </ng-container>
-
-</div>
-
 
 
 <!-- <div class="main-container">

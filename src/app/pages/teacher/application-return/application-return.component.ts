@@ -11,19 +11,24 @@ import { BookService } from '../../../service/book.service';
 import { User } from '../../../model/user';
 import { Student } from '../../../model/student';
 import { Book } from '../../../model/book';
+import { TeacherHeaderComponent } from "../../../components/teacher/teacher-header/teacher-header.component";
 
 @Component({
-  selector: 'app-application-return',
-  standalone: true,
-  imports: [
-    HttpClientModule, TableModule, 
-    CommonModule, ButtonModule
-  ],
-  providers: [LoanDetailService, UserService, StudentService, BookService],
-  templateUrl: './application-return.component.html',
-  styleUrl: './application-return.component.scss'
+    selector: 'app-application-return',
+    standalone: true,
+    providers: [LoanDetailService, UserService, StudentService, BookService],
+    templateUrl: './application-return.component.html',
+    styleUrl: './application-return.component.scss',
+    imports: [
+        HttpClientModule, TableModule,
+        CommonModule, ButtonModule,
+        TeacherHeaderComponent
+    ]
 })
 export class ApplicationReturnComponent implements OnInit{
+
+  userId: string | null = null;
+  currUser!:any;
 
   loanDetails: LoanDetail[] = [];
   loanDetailService: LoanDetailService = inject(LoanDetailService);
@@ -104,4 +109,23 @@ export class ApplicationReturnComponent implements OnInit{
     return book ? book.title : '';
   }
 
+  // returnBook(loanId: number) {
+  //   // Assuming you have a method in your LoanDetailService to update return date by ID
+  //   this.loanDetailService.updateReturnDate(loanId).subscribe(() => {
+  //     // Optional: You may want to reload the loan details after updating the return date
+  //     this.getLoanDetails();
+  //   // }, error => {
+  //   //   // Handle error if any
+  //   //   console.error('Error returning book:', error);
+  //   });
+  // }
+
+  // // returnBook(loanId: number) {
+  // //   this.loanDetailService.updateReturnDate(loanId, currentDate).subscribe(() => {
+  // //     this.getLoanDetails()
+  // //   });
+  // // }
+
+
 }
+

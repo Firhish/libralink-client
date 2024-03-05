@@ -1,6 +1,7 @@
-<p>application-return works!</p>
+<app-teacher-header [currUserId]="userId"></app-teacher-header>
 
 <div class="main-container">
+    <h1>Loan Details</h1>
     <p-table [value]="loanDetails" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
@@ -10,6 +11,7 @@
                 <th>Loan Date</th>
                 <th>Due Date</th>
                 <th>Return Date</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </ng-template>
@@ -21,8 +23,10 @@
                 <td>{{ loanDetail.loanDate }}</td>
                 <td>{{ loanDetail.dueDate }}</td>
                 <td>{{ loanDetail.returnDate }}</td>
+                <td>{{ loanDetail.status }}</td>
                 <div class="return-button">
                     <p-button label="RETURN" icon="pi pi-user-check"></p-button>
+                    <!-- <button pButton type="button" label="RETURN" icon="pi pi-user-check" (click)="returnBook(loanDetail.loanId)"></button> -->
                 </div>
             </tr>
         </ng-template>

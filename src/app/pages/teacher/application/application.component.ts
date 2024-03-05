@@ -10,19 +10,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { User } from '../../../model/user';
 import { UserService } from '../../../service/user.service';
+import { TeacherHeaderComponent } from "../../../components/teacher/teacher-header/teacher-header.component";
 
 @Component({
-  selector: 'app-teacher-application',
-  standalone: true,
-  imports: [ 
-    ButtonModule, CommonModule, CardModule, 
-    HttpClientModule, TableModule
-  ],
-  providers: [LoanDetailService, BookService, UserService],
-  templateUrl: './application.component.html',
-  styleUrl: './application.component.scss'
+    selector: 'app-teacher-application',
+    standalone: true,
+    providers: [LoanDetailService, BookService, UserService],
+    templateUrl: './application.component.html',
+    styleUrl: './application.component.scss',
+    imports: [
+        ButtonModule, CommonModule, CardModule,
+        HttpClientModule, TableModule,
+        TeacherHeaderComponent
+    ]
 })
 export class TeacherApplicationComponent implements OnInit{
+
+  userId: string | null = null;
+  currUser!:any;
 
   loanDetails: LoanDetail[] = [];
   loanDetailService: LoanDetailService = inject(LoanDetailService);
@@ -81,30 +86,12 @@ export class TeacherApplicationComponent implements OnInit{
     const user = this.users.find(b => b.userId === userId);
     return user ? user.username : '';
   }
+
+  acceptLoan(loanId: number) {
+    this.loanDetailService.updateStatus(loanId, 'ACCEPT').subscribe(() => {
+      // Update loanDetails after status is updated
+      this.getLoanDetails();
+    });
+  }
  
-
-  cardArray = [
-  
-    {
-      header: "Firdaus",
-      subheader: "Project Manager",
-      imageUrl: "../../../assets/daus.png"
-    },
-    {
-      header: "Yumni",
-      subheader: "Version Control Supervisor",
-      imageUrl: "../../../assets/mini.png"
-    },
-    {
-      header: "Salwa",
-      subheader: "Database Designer",
-      imageUrl: "../../../assets/salwa_cat.png"
-    },
-    {
-      header: "Dina",
-      subheader: "Cat Coder",
-      imageUrl: "../../../assets/dina.png"
-    }
-  ]
-
 }

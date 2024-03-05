@@ -13,19 +13,24 @@ import { Student } from '../../../model/student';
 import { Book } from '../../../model/book';
 import { Penalty } from '../../../model/penalty';
 import { PenaltyService } from '../../../service/penalty.service';
+import { TeacherHeaderComponent } from "../../../components/teacher/teacher-header/teacher-header.component";
 
 @Component({
-  selector: 'app-application-penalty',
-  standalone: true,
-  imports: [
-    HttpClientModule, TableModule, 
-    CommonModule, ButtonModule
-  ],
-  providers: [LoanDetailService, UserService, StudentService, BookService, PenaltyService],
-  templateUrl: './application-penalty.component.html',
-  styleUrl: './application-penalty.component.scss'
+    selector: 'app-application-penalty',
+    standalone: true,
+    providers: [LoanDetailService, UserService, StudentService, BookService, PenaltyService],
+    templateUrl: './application-penalty.component.html',
+    styleUrl: './application-penalty.component.scss',
+    imports: [
+        HttpClientModule, TableModule,
+        CommonModule, ButtonModule,
+        TeacherHeaderComponent
+    ]
 })
 export class ApplicationPenaltyComponent implements OnInit{
+
+  userId: string | null = null;
+  currUser!:any;
 
   loanDetails: LoanDetail[] = [];
   loanDetailService: LoanDetailService = inject(LoanDetailService);

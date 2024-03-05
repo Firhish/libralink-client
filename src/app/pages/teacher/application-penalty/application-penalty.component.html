@@ -1,6 +1,7 @@
-<p>application-penalty works!</p>
+<app-teacher-header [currUserId]="userId"></app-teacher-header>
 
 <div class="main-container">
+    <h1>Penalty List</h1>
     <p-table [value]="penalties" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
