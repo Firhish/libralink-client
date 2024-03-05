@@ -1,12 +1,11 @@
 <app-students-header [currUserId]="currUserId"></app-students-header>
 <div class="main-container">    
-    <p>student({{currUserId}}) book-list works!</p>
     <h1>Books List</h1>
     <div class="card">
         <p-table [value]="allBooks" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>ID</th>
+                    <th>Book ID</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Published Date</th>

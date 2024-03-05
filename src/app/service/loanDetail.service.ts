@@ -32,4 +32,13 @@ export class LoanDetailService {
   addLoanDetails(loanDetail:any): Observable<any>{
     return this.http.post(this.serverHost + "/loan-detail/add", loanDetail);
   }
+
+  getAllLoanDetailsByUserId(id:string|null): Observable<LoanDetail[]>{
+    return this.http.get<LoanDetail[]>(this.serverHost + "/loan-detail/get-all-by-user-id/" + id);
+  } 
+
+  deleteById(id:string):Observable<any>{
+    return this.http.delete(this.serverHost + "/loan-detail/delete-by-id/" + id);
+  }
+
 }
