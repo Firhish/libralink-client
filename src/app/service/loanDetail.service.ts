@@ -15,4 +15,8 @@ export class LoanDetailService {
   getLoanDetails(): Observable<LoanDetail[]>{
     return this.http.get<LoanDetail[]>(this.serverHost + "/loan-detail/get-all")
   }
+
+  addLoanDetails(loanDetail:any): Observable<any>{
+    return this.http.post(this.serverHost + "/loan-detail/add", loanDetail);
+  }
 }
