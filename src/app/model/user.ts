@@ -1,4 +1,5 @@
 export interface User {
+    grade: String;
     userId: number,
     username: String,
     password: String,

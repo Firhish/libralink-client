@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TeacherApplicationComponent } from './pages/teacher/application/application.component';
 import { ApplicationReturnComponent } from './pages/teacher/application-return/application-return.component';
 import { TeacherProfileComponent } from './pages/teacher/profile/profile.component';
+import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
 
 export const routes: Routes = [
 
@@ -67,6 +68,11 @@ export const routes: Routes = [
         path: 'teacher/application-return',
         component: ApplicationReturnComponent,
         title: 'Teacher Application: Return Status'
+    },
+    {
+        path: 'teacher/application-penalty',
+        component: ApplicationPenaltyComponent,
+        title: 'Teacher Application: Penalty Status'
     },
     {
         path: 'teacher/profile',

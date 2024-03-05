@@ -1,0 +1,28 @@
+<p>application-penalty works!</p>
+
+<div class="main-container">
+    <p-table [value]="penalties" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>Book Title</th>
+                <th>Amount(RM)</th>
+                <th>Payment Status</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-penalty>
+            <tr>
+                <td>{{ getUserUsername(penalty.loanId) }}</td>
+                <td>{{ getStudentGrade(penalty.loanId) }}</td>
+                <td>{{ getBookTitle(penalty.loanId) }}</td>
+                <td>{{ penalty.amount }}</td>
+                <td>{{ penalty.paymentStatus }}</td>
+                <div class="return-button">
+                    <p-button label="RETURN" icon="pi pi-user-check"></p-button>
+                </div>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -8,6 +8,8 @@ import { LoanDetail } from '../../../model/loanDetail';
 import { Book } from '../../../model/book';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
+import { User } from '../../../model/user';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-teacher-application',
@@ -16,7 +18,7 @@ import { TableModule } from 'primeng/table';
     ButtonModule, CommonModule, CardModule, 
     HttpClientModule, TableModule
   ],
-  providers: [LoanDetailService, BookService],
+  providers: [LoanDetailService, BookService, UserService],
   templateUrl: './application.component.html',
   styleUrl: './application.component.scss'
 })
@@ -28,15 +30,21 @@ export class TeacherApplicationComponent implements OnInit{
   books: Book[] = [];
   bookService: BookService = inject(BookService); 
 
+  users: User[] = [];
+  userService: UserService = inject(UserService);
+  
+
   ngOnInit(): void {
     this.getLoanDetails();
     this.getBooks();
+    this.getUsers();
   }
 
   getLoanDetails(){
     this.loanDetailService.getLoanDetails().subscribe((loanDetails)=>{
       this.loanDetails = loanDetails;
       this.populateBookTitles();
+      this.populateUserUsername();
     })
   }
 
@@ -46,9 +54,21 @@ export class TeacherApplicationComponent implements OnInit{
     })
   }
 
+  getUsers(){
+    this.userService.getUsers().subscribe((users)=>{
+      this.users = users;
+    })
+  }
+
   populateBookTitles() {
     for (let loanDetail of this.loanDetails) {
       loanDetail.title = this.getBookTitle(loanDetail.bookId);
+    }
+  }
+
+  populateUserUsername() {
+    for (let loanDetail of this.loanDetails) {
+      loanDetail.username = this.getUserUsername(loanDetail.userId);
     }
   }
     
@@ -56,30 +76,35 @@ export class TeacherApplicationComponent implements OnInit{
     const book = this.books.find(b => b.bookId === bookId);
     return book ? book.title : '';
   }
+
+  getUserUsername(userId: number): String {
+    const user = this.users.find(b => b.userId === userId);
+    return user ? user.username : '';
+  }
  
 
-  // cardArray = [
+  cardArray = [
   
-  //   {
-  //     header: "Firdaus",
-  //     subheader: "Project Manager",
-  //     imageUrl: "../../../assets/daus.png"
-  //   },
-  //   {
-  //     header: "Yumni",
-  //     subheader: "Version Control Supervisor",
-  //     imageUrl: "../../../assets/mini.png"
-  //   },
-  //   {
-  //     header: "Salwa",
-  //     subheader: "Database Designer",
-  //     imageUrl: "../../../assets/salwa_cat.png"
-  //   },
-  //   {
-  //     header: "Dina",
-  //     subheader: "Cat Coder",
-  //     imageUrl: "../../../assets/dina.png"
-  //   }
-  // ]
+    {
+      header: "Firdaus",
+      subheader: "Project Manager",
+      imageUrl: "../../../assets/daus.png"
+    },
+    {
+      header: "Yumni",
+      subheader: "Version Control Supervisor",
+      imageUrl: "../../../assets/mini.png"
+    },
+    {
+      header: "Salwa",
+      subheader: "Database Designer",
+      imageUrl: "../../../assets/salwa_cat.png"
+    },
+    {
+      header: "Dina",
+      subheader: "Cat Coder",
+      imageUrl: "../../../assets/dina.png"
+    }
+  ]
 
 }
