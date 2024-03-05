@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { StudentService } from '../../service/student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,10 +21,8 @@ import { StudentService } from '../../service/student.service';
 export class RegisterComponent implements OnInit {
 
   registerUserForm!: FormGroup;
-  // studentData = {};
-  // registerStudentForm!: FormGroup;
 
-  constructor(private userService: UserService, private studentService: StudentService, private fb: FormBuilder) { }
+  constructor(private userService: UserService, private studentService: StudentService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.registerUserForm = this.fb.group({
@@ -35,30 +34,44 @@ export class RegisterComponent implements OnInit {
       role: ['student', [Validators.required]],
       grade: [null, [Validators.required]]
     });
-
-    // this.registerStudentForm = this.fb.group({
-    //   grade: [null, [Validators.required]]
-    // })
-
   }
 
-  registerUser(){
+  onSubmit() {
+
+    const grade = this.registerUserForm.value.grade;
+    const email = this.registerUserForm.value.email;
+    const password = this.registerUserForm.value.password;
+    const loginData = { "email": email, "password": password };
+    console.log(grade);
+
+    // add to users table
     this.userService.addUser(this.registerUserForm.value).subscribe((res) => {
-      console.log(res);
-      alert("You were successfully registered!")
+
+      if (res != null) {
+        const userId = res.userId;
+        console.log(res);
+        const studentData = { "userId": userId, "grade": grade }
+
+        // add to students table
+        this.studentService.addStudent(studentData).subscribe((res2) => {
+
+          if (res2 != null) {
+            alert("You were successfully registered!");
+            console.log(res2);
+
+            // login
+            this.userService.loginByEmailAndPassword(loginData).subscribe((res) => {
+
+              if (res != null) {
+                const userId = res.userId;
+                this.router.navigate(['student/welcome', { userId }]);
+              }
+            })
+          }
+        })
+      }
+
+
     })
   }
-
-  // registerStudent(){
-  //   this.studentService.addStudent(this.studentData).subscribe((res) => {
-  //     console.log(res);
-  //     alert("You have registered successfully!")
-  //   })
-  // }
-
-  // onSubmit() {
-  //   this.registerUser();
-  //   this.registerStudent();
-  // }
-
 }

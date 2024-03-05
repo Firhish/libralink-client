@@ -38,16 +38,23 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.loginUserForm.value);
-    this.userService.loginByEmailAndPassword(this.loginUserForm.value).subscribe((res)=>{
+    this.userService.loginByEmailAndPassword(this.loginUserForm.value).subscribe((res) => {
 
-      if(res.role=="student"){
-        this.router.navigate(['student/welcome']);
-      } else if(res.role=="teacher"){
-        this.router.navigate(['teacher/welcome']);
-      } else{
-        this.router.navigate(['admin/welcome']);
+      if (res != null) {
+        const userId = res.userId;
+        if (res.role == "student") {
+          alert("Login successfully!");
+          this.router.navigate(['student/welcome',{userId}]);
+        } else if (res.role == "teacher") {
+          alert("Login successfully!");
+          this.router.navigate(['teacher/welcome',{userId}]);
+        } else {
+          alert("Login successfully!");
+          this.router.navigate(['admin/welcome',{userId}]);
+        }
+      } else {
+        alert("User not found, Please enter correct email and password!");
       }
-      
       console.log(res);
     })
   }
