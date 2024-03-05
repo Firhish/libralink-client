@@ -25,8 +25,16 @@ export class StudentsHeaderComponent {
       command: () => this.navigateToBookList(),
     },
     {
-      label: 'Your Application',
-      command: () => this.navigateToYourApplication(),
+      label: 'Application',
+      items: [
+        {
+          label: "Active Application",
+          command: () => this.navigateToYourApplication(),
+        },
+        {
+          label: "Penalty"
+        }
+      ]
     },
   ];
 
