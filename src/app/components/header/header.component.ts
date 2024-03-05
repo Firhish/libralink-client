@@ -15,5 +15,5 @@ import { MenubarModule } from 'primeng/menubar';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Input() items!: { label: string; items: { label: string; routerLink: string[]; }[]; }[];
+  @Input() items!: any;
 }

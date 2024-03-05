@@ -12,6 +12,11 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TeacherApplicationComponent } from './pages/teacher/application/application.component';
 import { ApplicationReturnComponent } from './pages/teacher/application-return/application-return.component';
 import { TeacherProfileComponent } from './pages/teacher/profile/profile.component';
+import { StudentProfileComponent } from './pages/student/profile/profile.component';
+import { StudentBookListComponent } from './pages/student/book-list/book-list.component';
+import { StudentApplicationComponent } from './pages/student/application/application.component';
+import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
+import { BookListComponent } from './pages/teacher/book-list/book-list.component';
 
 export const routes: Routes = [
 
@@ -49,6 +54,21 @@ export const routes: Routes = [
         title: 'Student Welcome'
     },
     {
+        path: 'student/book-list',
+        component: StudentBookListComponent,
+        title: 'Student Book List'
+    },
+    {
+        path: 'student/application',
+        component: StudentApplicationComponent,
+        title: 'Student Application'
+    },
+    {
+        path: 'student/profile',
+        component: StudentProfileComponent,
+        title: 'Student Profile'
+    },
+    {
         path: 'teacher/welcome',
         component: TeacherWelcomeComponent,
         title: 'Teacher Welcome'
@@ -69,10 +89,19 @@ export const routes: Routes = [
         title: 'Teacher Application: Return Status'
     },
     {
+        path: 'teacher/application-penalty',
+        component: ApplicationPenaltyComponent,
+        title: 'Teacher Application: Penalty Status'
+    },
+    {
         path: 'teacher/profile',
         component: TeacherProfileComponent,
         title: 'Teacher Profile'
+    },
+    {
+        path: 'teacher/book-list',
+        component: BookListComponent,
+        title: 'Book List'
     }
-
 
 ];

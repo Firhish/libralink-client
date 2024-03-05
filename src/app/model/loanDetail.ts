@@ -1,4 +1,7 @@
 export interface LoanDetail {
+    paymentStatus: Boolean;
+    amount: number;
+    username: String;
     title: String;
     loanId: number,
     userId: number,
