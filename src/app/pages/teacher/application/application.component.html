@@ -2,27 +2,26 @@
 
 <div class="main-container">
 
-    <div class="card">
+    <!-- <div class="card">
         <p-table [value]="loanDetails" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Id</th>
+                    <th>Name</th>
                     <th>Title</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-loanDetail>
                 <tr>
-                    <td>{{ loanDetail.loanId }}</td>
+                    <td>{{ getUserUsername(loanDetail.userId) }}</td>
                     <td>{{ getBookTitle(loanDetail.bookId) }}</td>
                 </tr>
             </ng-template>
         </p-table>
-    </div>
+    </div> -->
     
-    <!-- <ng-container *ngFor="let cardData of cardArray">
+    <ng-container *ngFor="let loanDetail of loanDetails">
         <div class="application-box">
-            <p-card header={{cardData.header}} subheader={{cardData.subheader}} [style]="{ width: '1000px' }">     
-                <p>{{cardData.subheader}}</p>
+            <p-card header={{getUserUsername(loanDetail.userId)}} subheader={{getBookTitle(loanDetail.bookId)}} [style]="{ width: '1000px' }">     
                 <ng-template pTemplate="footer">
                     <div class="button">
                         <p-button label="ACCEPT" icon="pi pi-check"></p-button>
@@ -31,7 +30,7 @@
                 </ng-template>
             </p-card>
         </div>
-    </ng-container> -->
+    </ng-container>
 
 </div>
 
