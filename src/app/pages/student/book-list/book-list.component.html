@@ -1,4 +1,34 @@
 <app-students-header [currUserId]="currUserId"></app-students-header>
 <div class="main-container">    
     <p>student({{currUserId}}) book-list works!</p>
+    <h1>Books List</h1>
+    <div class="card">
+        <p-table [value]="allBooks" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Published Date</th>
+                    <th>Publisher</th>
+                    <th>ISBN</th>
+                    <th>Action</th>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-book>
+                <tr>
+                    <td>{{ book.bookId }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{book.publishedDate}}</td>
+                    <td>{{book.publisherName}}</td>    
+                    <td>{{ book.isbn }}</td>
+                    <td><p-button label="Borrow" (onClick)="onClick(book)" [raised]="true"></p-button></td>
+
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>
+

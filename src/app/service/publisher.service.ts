@@ -15,5 +15,9 @@ export class PublisherService {
   getPublishers(): Observable<Publisher[]>{
     return this.http.get<Publisher[]>(this.serverHost + "/get-all")
   }
+
+  getPublisherById(id:string): Observable<Publisher>{
+    return this.http.get<Publisher>(this.serverHost + "/get-by-id/"+id)
+  }
   
 }

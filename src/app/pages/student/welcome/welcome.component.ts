@@ -4,7 +4,6 @@ import { StudentsHeaderComponent } from '../../../components/student/students-he
 import { UserService } from '../../../service/user.service';
 import { StudentService } from '../../../service/student.service';
 import { HttpClientModule } from '@angular/common/http';
-import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-student-welcome',
