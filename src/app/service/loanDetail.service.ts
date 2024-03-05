@@ -20,10 +20,10 @@ export class LoanDetailService {
     return this.http.put(`${this.serverHost}/loan-detail/update-status-by-id/${loanId}`, { status });
   }
 
-  // updateReturnDate(loanId: number): Observable<any> {
-  //   const currentDate = new Date().toISOString().split('T')[0]; // Get today's date
-  //   return this.http.put(`${this.serverHost}/loan-detail/update-return-date-by-id/${loanId}`, { returnDate: currentDate });
-  // }
+  updateReturnDate(loanId: number): Observable<any> {
+    const currentDate = new Date().toISOString().split('T')[0]; // Get today's date
+    return this.http.put(`${this.serverHost}/loan-detail/update-return-date-by-id/${loanId}`, { returnDate: currentDate });
+  }
 
   // updateReturnDate(loanId: number, returnDate: Date): Observable<any> {
   //   return this.http.put(`${this.serverHost}/loan-detail/update-return-date-by-id/${loanId}`, { returnDate });
@@ -41,4 +41,13 @@ export class LoanDetailService {
     return this.http.delete(this.serverHost + "/loan-detail/delete-by-id/" + id);
   }
 
+
+  // updateReturnDate(loanId: number, returnDate: Date): Observable<any> {
+  //   return this.http.put(`${this.serverHost}/loan-detail/update-return-date-by-id/${loanId}`, { returnDate });
+  // }
+
+  // updateReturnDate(loanId: number, returnDate: Date): Observable<any> {
+  //   const url = `${this.serverHost}/loan-detail/update-return-date-by-id/${loanId}`;
+  //   return this.http.put(url, { returnDate });
+  // }
 }

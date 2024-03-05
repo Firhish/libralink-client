@@ -120,11 +120,22 @@ export class ApplicationReturnComponent implements OnInit{
   //   });
   // }
 
-  // // returnBook(loanId: number) {
-  // //   this.loanDetailService.updateReturnDate(loanId, currentDate).subscribe(() => {
-  // //     this.getLoanDetails()
-  // //   });
-  // // }
+  // returnBook(loanId: number) {
+  //   const currentDate = new Date(); // Get the current date
+  //   this.loanDetailService.updateReturnDate(loanId, currentDate).subscribe(() => {
+  //     this.getLoanDetails();
+  //   });
+  // }
+
+  returnBook(loanDetail: LoanDetail): void {
+    // Call the service method to update the return date
+    this.loanDetailService.updateReturnDate(loanDetail.loanId)
+      .subscribe(updatedLoanDetail => {
+        // Update the return date in the loanDetail object
+        loanDetail.returnDate = updatedLoanDetail.returnDate;
+        // Optionally, update any other properties as needed
+      });
+  }
 
 
 }
