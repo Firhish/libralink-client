@@ -19,9 +19,10 @@
                 <td>{{ getStudentGrade(penalty.loanId) }}</td>
                 <td>{{ getBookTitle(penalty.loanId) }}</td>
                 <td>{{ penalty.amount }}</td>
-                <td>{{ penalty.paymentStatus }}</td>
+                <td>{{ penalty.paymentStatus ? 'PAID' : 'UNPAID' }}</td>
                 <div class="return-button">
-                    <p-button label="RETURN" icon="pi pi-user-check"></p-button>
+                    <!-- <p-button label="PAY"></p-button> -->
+                    <p-button label="PAY" (click)="payLoan(penalty.penaltyId)"></p-button>
                 </div>
             </tr>
         </ng-template>
