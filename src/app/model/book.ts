@@ -13,6 +13,5 @@ export interface Book {
     name : String,
     address : String,
     phoneNumber : String,
-    namegenre : String
-    
+    //namegenre : String
 }
