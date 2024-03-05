@@ -9,6 +9,9 @@ import { StudentWelcomeComponent } from './pages/student/welcome/welcome.compone
 import { TeacherWelcomeComponent } from './pages/teacher/welcome/welcome.component';
 import { AdminWelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { TeacherApplicationComponent } from './pages/teacher/application/application.component';
+import { ApplicationReturnComponent } from './pages/teacher/application-return/application-return.component';
+import { TeacherProfileComponent } from './pages/teacher/profile/profile.component';
 
 export const routes: Routes = [
 
@@ -54,6 +57,21 @@ export const routes: Routes = [
         path: 'admin/welcome',
         component: AdminWelcomeComponent,
         title: 'Admin Welcome'
+    },
+    {
+        path: 'teacher/application',
+        component: TeacherApplicationComponent,
+        title: 'Teacher Application'
+    },
+    {
+        path: 'teacher/application-return',
+        component: ApplicationReturnComponent,
+        title: 'Teacher Application: Return Status'
+    },
+    {
+        path: 'teacher/profile',
+        component: TeacherProfileComponent,
+        title: 'Teacher Profile'
     }
 
 
