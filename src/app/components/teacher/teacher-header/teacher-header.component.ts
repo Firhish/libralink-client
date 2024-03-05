@@ -26,9 +26,23 @@ export class TeacherHeaderComponent {
     },
     {
       label: 'Student Application',
-      command: () => this.navigateToYourApplication(),
+      items: [ // Submenu (optional)
+      {
+        label: 'Application',
+        command: () => this.navigateToStudentApplication(),
+      },
+      {
+        label: 'Loan Details',
+        command: () => this.navigateToApplicationReturn(),
+      },
+      {
+        label: 'Penalty List',
+        command: () => this.navigateToApplicationPenalty(),
+      },
+      ],
     },
   ];
+
 
   // navigateToWelcome() {
   //   const currUserId = this.currUserId;
@@ -42,11 +56,22 @@ export class TeacherHeaderComponent {
     this.router.navigate(['teacher/book-list',{currUserId}]);
   }
 
-  private navigateToYourApplication() {
+  private navigateToStudentApplication() {
     const currUserId = this.currUserId;
     console.log(currUserId);
     this.router.navigate(['teacher/application',{currUserId}]);
   }
 
+  private navigateToApplicationReturn() {
+    const currUserId = this.currUserId;
+    console.log(currUserId);
+    this.router.navigate(['teacher/application-return', { currUserId }]);
+  }
+
+  private navigateToApplicationPenalty() {
+    const currUserId = this.currUserId;
+    console.log(currUserId);
+    this.router.navigate(['teacher/application-penalty', { currUserId }]);
+  }
 
 }
