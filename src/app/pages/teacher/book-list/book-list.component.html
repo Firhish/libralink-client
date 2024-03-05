@@ -1,1 +1,25 @@
-<p>book-list works!</p>
+
+<div class="card">
+    <p-table [value]="books" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Quantity</th>
+                <th>Published Date</th>
+                <th>Genre</th>
+                <th>Publisher Name</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.quantity }}</td>
+                <td>{{ book.publishedDate }}</td>
+                <td>{{ getGenreName(book.bookId) }}</td>
+                <td>{{ getPublisherName(book.publisherId) }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

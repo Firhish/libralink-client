@@ -16,6 +16,7 @@ import { StudentProfileComponent } from './pages/student/profile/profile.compone
 import { StudentBookListComponent } from './pages/student/book-list/book-list.component';
 import { StudentApplicationComponent } from './pages/student/application/application.component';
 import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
+import { BookListComponent } from './pages/teacher/book-list/book-list.component';
 
 export const routes: Routes = [
 
@@ -96,7 +97,11 @@ export const routes: Routes = [
         path: 'teacher/profile',
         component: TeacherProfileComponent,
         title: 'Teacher Profile'
+    },
+    {
+        path: 'teacher/book-list',
+        component: BookListComponent,
+        title: 'Book List'
     }
-
 
 ];
