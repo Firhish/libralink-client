@@ -12,6 +12,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TeacherApplicationComponent } from './pages/teacher/application/application.component';
 import { ApplicationReturnComponent } from './pages/teacher/application-return/application-return.component';
 import { TeacherProfileComponent } from './pages/teacher/profile/profile.component';
+import { StudentProfileComponent } from './pages/student/profile/profile.component';
+import { StudentBookListComponent } from './pages/student/book-list/book-list.component';
+import { StudentApplicationComponent } from './pages/student/application/application.component';
 import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
 
 export const routes: Routes = [
@@ -48,6 +51,21 @@ export const routes: Routes = [
         path: 'student/welcome',
         component: StudentWelcomeComponent,
         title: 'Student Welcome'
+    },
+    {
+        path: 'student/book-list',
+        component: StudentBookListComponent,
+        title: 'Student Book List'
+    },
+    {
+        path: 'student/application',
+        component: StudentApplicationComponent,
+        title: 'Student Application'
+    },
+    {
+        path: 'student/profile',
+        component: StudentProfileComponent,
+        title: 'Student Profile'
     },
     {
         path: 'teacher/welcome',

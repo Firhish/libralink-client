@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<User[]>(this.serverHost + "/get-all")
   }
 
+  getUserById(id:string|null): Observable<any>{
+    return this.http.get<any>(this.serverHost + "/get-by-id/" + id)
+  }
+
   loginByEmailAndPassword(input:any): Observable<any>{
     return this.http.post(this.serverHost + "/login", input);
   }
