@@ -109,24 +109,6 @@ export class ApplicationReturnComponent implements OnInit{
     return book ? book.title : '';
   }
 
-  // returnBook(loanId: number) {
-  //   // Assuming you have a method in your LoanDetailService to update return date by ID
-  //   this.loanDetailService.updateReturnDate(loanId).subscribe(() => {
-  //     // Optional: You may want to reload the loan details after updating the return date
-  //     this.getLoanDetails();
-  //   // }, error => {
-  //   //   // Handle error if any
-  //   //   console.error('Error returning book:', error);
-  //   });
-  // }
-
-  // returnBook(loanId: number) {
-  //   const currentDate = new Date(); // Get the current date
-  //   this.loanDetailService.updateReturnDate(loanId, currentDate).subscribe(() => {
-  //     this.getLoanDetails();
-  //   });
-  // }
-
   returnBook(loanDetail: LoanDetail): void {
     // Call the service method to update the return date
     this.loanDetailService.updateReturnDate(loanDetail.loanId)

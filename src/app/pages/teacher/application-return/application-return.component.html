@@ -1,7 +1,7 @@
 <app-teacher-header [currUserId]="userId"></app-teacher-header>
 
 <div class="main-container">
-    <h1>Loan Details</h1>
+    <h1 id="title">Loan Details</h1>
     <p-table [value]="loanDetails" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
@@ -26,10 +26,14 @@
                 <td>{{ loanDetail.dueDate }}</td>
                 <td>{{ loanDetail.returnDate }}</td>
                 <td>{{ loanDetail.status }}</td>
-                <div class="return-button">
-                    <!-- <p-button label="RETURN"></p-button> -->
+                <td *ngIf="loanDetail.returnDate != null || loanDetail.status == 'REJECTED';else elseBlock">
+                    N/A
+                </td>
+            <ng-template #elseBlock>
+                <td>
                     <button pButton type="button" label="RETURN" (click)="returnBook(loanDetail.loanId)"></button>
-                </div>
+                </td>
+            </ng-template>
             </tr>
         </ng-template>
     </p-table>
