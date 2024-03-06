@@ -32,7 +32,7 @@ export class BookService {
   //   return this.http.put(this.serverHost + "/book/update-info-by-id/" + bookId, book)
   // }
 
-  deleteBook(id:string|null): Observable<any>{
-    return this.http.delete<any>(this.serverHost + "/book/delete-by-id/" + id)
+  deleteBook(bookId:string|null): Observable<any>{
+    return this.http.delete<any>(this.serverHost + "/book/delete-by-id/" + bookId)
   }
 }
