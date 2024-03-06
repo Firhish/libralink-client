@@ -5,6 +5,7 @@
     <p-table [value]="penalties" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
+                <th>Loan Id</th>
                 <th>Name</th>
                 <th>Grade</th>
                 <th>Book Title</th>
@@ -15,6 +16,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-penalty>
             <tr>
+                <td>{{ penalty.loanId }}</td>
                 <td>{{ getUserUsername(penalty.loanId) }}</td>
                 <td>{{ getStudentGrade(penalty.loanId) }}</td>
                 <td>{{ getBookTitle(penalty.loanId) }}</td>
