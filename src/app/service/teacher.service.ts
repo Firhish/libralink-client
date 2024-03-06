@@ -28,9 +28,7 @@ export class TeacherService {
     return this.http.delete<any>(this.serverHost + '/delete-by-id/' + id);
   }
 
-constructor(private http: HttpClient) {}
-
-  getTeacherByUserId(): ObservedValueOf<Teacher[]>{
+  getTeacherByUserId(): Observable<Teacher[]>{
     return this.http.get<Teacher[]>(this.serverHost + "/get-by-userid")
   }
 }
