@@ -89,4 +89,9 @@ export class TeacherHeaderComponent {
     this.router.navigate(['teacher/application-penalty', { currUserId }]);
   }
 
+  navigateToLoginPage() {
+    alert("Are you sure want to logout?")
+    this.router.navigate(['/login']);
+  }
+
 }

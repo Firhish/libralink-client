@@ -58,9 +58,9 @@ export class ApplicationPenaltyComponent implements OnInit{
   getLoanDetails(){
     this.loanDetailService.getLoanDetails().subscribe((loanDetails)=>{
       this.loanDetails = loanDetails;
-      // this.populateUserUsername();
-      // this.populateStudentGrade(); 
-      // this.populateBookTitles();
+      this.populateUserUsername();
+      this.populateStudentGrade(); 
+      this.populateBookTitles();
     })
   }
 
@@ -123,12 +123,6 @@ export class ApplicationPenaltyComponent implements OnInit{
     const book = this.books.find(b => b.bookId === bookId);
     return book ? book.title : '';
   }
-
-  // payLoan(penaltyId: number) {
-  //   this.penaltyService.updatePaymentStatusById(penaltyId).subscribe(() => {
-  //     this.getPenalties();
-  //   });
-  // }
 
   payLoan(penaltyId: number) {
     this.penaltyService.updatePaymentStatusById(penaltyId, true).subscribe(() => {
