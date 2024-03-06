@@ -1,10 +1,11 @@
 <app-teacher-header [currUserId]="userId"></app-teacher-header>
 
 <div class="main-container">
-    <h1>Penalty List</h1>
+    <h1 id="title">Penalty List</h1>
     <p-table [value]="penalties" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
+                <th>Loan Id</th>
                 <th>Name</th>
                 <th>Grade</th>
                 <th>Book Title</th>
@@ -15,15 +16,18 @@
         </ng-template>
         <ng-template pTemplate="body" let-penalty>
             <tr>
+                <td>{{ penalty.loanId }}</td>
                 <td>{{ getUserUsername(penalty.loanId) }}</td>
                 <td>{{ getStudentGrade(penalty.loanId) }}</td>
                 <td>{{ getBookTitle(penalty.loanId) }}</td>
                 <td>{{ penalty.amount }}</td>
                 <td>{{ penalty.paymentStatus ? 'PAID' : 'UNPAID' }}</td>
-                <div class="return-button">
-                    <!-- <p-button label="PAY"></p-button> -->
+                <td *ngIf="penalty.paymentStatus != true;else elseBlock">
                     <p-button label="PAY" (click)="payLoan(penalty.penaltyId)"></p-button>
-                </div>
+                </td>
+            <ng-template #elseBlock>
+                <td>N/A</td>
+            </ng-template>
             </tr>
         </ng-template>
     </p-table>

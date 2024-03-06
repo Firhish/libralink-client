@@ -88,7 +88,14 @@ export class TeacherApplicationComponent implements OnInit{
   }
 
   acceptLoan(loanId: number) {
-    this.loanDetailService.updateStatus(loanId, 'ACCEPT').subscribe(() => {
+    this.loanDetailService.updateStatus(loanId, 'APPROVED').subscribe(() => {
+      // Update loanDetails after status is updated
+      this.getLoanDetails();
+    });
+  }
+
+  rejectLoan(loanId: number) {
+    this.loanDetailService.updateStatus(loanId, 'REJECTED').subscribe(() => {
       // Update loanDetails after status is updated
       this.getLoanDetails();
     });

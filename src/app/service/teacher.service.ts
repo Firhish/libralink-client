@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { Teacher } from '../model/teacher';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +28,11 @@ export class TeacherService {
     return this.http.delete<any>(this.serverHost + '/delete-by-id/' + id);
   }
 
+constructor(private http: HttpClient) {}
 
-  
-
+  getTeacherByUserId(): ObservedValueOf<Teacher[]>{
+    return this.http.get<Teacher[]>(this.serverHost + "/get-by-userid")
+  }
 }
 
   // getUsers(): Observable<any>{

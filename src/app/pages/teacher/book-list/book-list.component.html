@@ -1,7 +1,7 @@
 <app-teacher-header [currUserId]="userId"></app-teacher-header>
 <div class="main-container">    
     <!-- <p>student({{userId}}) book-list works!</p> -->
-    <h1>Books List</h1>
+    <h1>Book List</h1>
     <div class="card">
         <p-table [value]="books" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="header">
@@ -19,6 +19,7 @@
                     <th>Shelf Number</th>
                     <th>Floor Number</th>
                     <th>Action</th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-book>
@@ -35,7 +36,13 @@
                     <td>{{ getPublisherPhonenumber(book.publisherId) }}</td>
                     <td>{{ getLocationShelfNumber(book.locationId) }}</td>
                     <td>{{ getLocationFloorNumber(book.locationId) }}</td>
-                    <td><button>Delete</button><td>
+                    <td>
+                        <button class="delete-button" (onClick)="onClick(book)">Delete</button>
+                    </td>
+                    <td>
+                        <button class="edit-button">Edit</button>
+                    </td>
+                    
                     <!-- <td><p-button label="Update" (onClick)="onClick(book)" [raised]="true"></p-button></td> -->
                 </tr>
             </ng-template>
