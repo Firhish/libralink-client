@@ -68,11 +68,12 @@ export class StudentApplicationComponent implements OnInit{
   onClick(loan:any){
     const idLoanToDelete = loan.loanId;
     // alert(idLoanToDelete);
+    alert("Are you sure want to delete the loan application?")
     this.loanDetailService.deleteById(idLoanToDelete).subscribe((res)=>{
       console.log(res);
       window.location.reload();
     })
-    // alert("Are you sure want to delete the loan application?")
+    
   }
 
   navigateToBookList() {

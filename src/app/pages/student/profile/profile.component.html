@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<app-students-header [currUserId]="currUserId"></app-students-header>
+<div class="main-container">    
+    <h1>Your Profile</h1>
+    <div class="profile-card">
+        <div class="avatar"><img src="../../../../assets/salwa_cat.png" alt=""></div>
+        <p id="fullName">{{dataToDisplay.name}}</p>
+        <p id="role">{{dataToDisplay.role}} ({{dataToDisplay.grade}})</p>
+        <p id="email" >{{dataToDisplay.email}}</p>
+        <p id="phone">{{dataToDisplay.phoneNumber}}</p>
+       
+        
+        <p-button label="Update" [raised]="true"></p-button>
+    </div>
+</div>

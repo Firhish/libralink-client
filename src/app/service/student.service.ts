@@ -25,6 +25,10 @@ export class StudentService {
     return this.http.get<any>(this.serverHost + "/get-all")
   }
 
+  getStudentByUserId(userId:any): Observable<any>{
+    return this.http.get<any>(this.serverHost + "/get-by-userid/" + userId)
+  }
+
   addStudent(student: any): Observable<any>{
     return this.http.post(this.serverHost + "/add", student);
   }
