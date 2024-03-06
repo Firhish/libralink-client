@@ -136,4 +136,25 @@ export class BookListComponent implements OnInit {
     }
   }
 
+  onClick(book:any){
+    const idBookToDelete = book.bookId;
+    // alert(idLoanToDelete);
+    this.bookService.deleteBook(idBookToDelete).subscribe((res)=>{
+      console.log(res);
+      window.location.reload();
+    })
+    // // alert("Are you sure want to delete the loan application?")
+    // const idBookToDelete = book.loanId;
+    // // alert(idLoanToDelete);
+    // this.loanDetailService.deleteById(idLoanToDelete).subscribe((res)=>{
+    //   console.log(res);
+    //   window.location.reload();
+    // })
+    // ale
+  }
+
+  // deleteById(id:string):Observable<any>{
+  //   return this.http.delete(this.serverHost + "/loan-detail/delete-by-id/" + id);
+  // }
+
 }
