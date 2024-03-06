@@ -1,1 +1,10 @@
-<p>teacher-header works!</p>
+<p-menubar [model]="items" class="sticky-menubar">
+    <ng-template pTemplate="start">
+        <a><img src="../../../assets/libralink_logo.svg" height="40" class="mr-2" style="margin-right: 40px;"/></a>
+        <!-- <img src="../../../assets/libralink_logo.svg" height="40" class="mr-2" style="margin-right: 40px;"/> -->
+    </ng-template>
+    <ng-template pTemplate="end">
+        <p-button  icon="pi pi-user" [text]="true" [routerLink]= "['/student/profile']" severity="secondary"></p-button>
+        <p-button icon="pi pi-sign-out" [text]="true" [routerLink]= "['/login']" severity="secondary"></p-button>
+    </ng-template>
+</p-menubar>

@@ -1,0 +1,62 @@
+<!-- <app-teacher-header [currUserId]="userId"></app-teacher-header> -->
+<div class="container">
+    <div class="overlay">
+        <div class="main-container">    
+            <!-- <p>student({{userId}}) book-list works!</p> -->
+            <div class="form-container">
+                <h1>Book List Form</h1>
+                <form [formGroup]="bookListCreateForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required formControlName="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" required formControlName="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="isbn" name="isbn" required formControlName="isbn">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" id="quantity" name="quantity" required formControlName="quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="availableQuantity">Available Quantity</label>
+                        <input type="text" id="availableQuantity" name="availableQuantity" required formControlName="availableQuantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="publishedDate">Published Date</label>
+                        <input type="text" id="publishedDate" name="publishedDate" formControlName="publishedDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Publisher Name</label>
+                        <input type="text" id="name" name="name" required formControlName="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Publisher Phone Number</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" required formControlName="phoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="shelfNumber">Shelf Number</label>
+                        <input type="text" id="shelfNumber" name="shelfNumber" required formControlName="shelfNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="floorNumber">Floor Number</label>
+                        <input type="text" id="floorNumber" name="floorNumber" required formControlName="floorNumber">
+                    </div>
+                    <!-- <p-button label="Add"></p-button> -->
+                    <!-- <p-button label="Add" [raised]="true" severity="primary" type="submit" (onClick)="onSubmit()"></p-button> -->
+                    <button label="Add" severity="primary" type="submit" (onClick)="onSubmit()">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+
+
+

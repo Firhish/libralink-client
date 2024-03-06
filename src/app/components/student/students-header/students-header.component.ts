@@ -25,8 +25,17 @@ export class StudentsHeaderComponent {
       command: () => this.navigateToBookList(),
     },
     {
-      label: 'Your Application',
-      command: () => this.navigateToYourApplication(),
+      label: 'Application',
+      items: [
+        {
+          label: "Active Application",
+          command: () => this.navigateToActiveApplication(),
+        },
+        {
+          label: "Penalty",
+          command: () => this.navigateToPenalty(),
+        }
+      ]
     },
   ];
 
@@ -42,10 +51,21 @@ export class StudentsHeaderComponent {
     this.router.navigate(['student/book-list',{currUserId}]);
   }
 
-  private navigateToYourApplication() {
+  private navigateToActiveApplication() {
     const currUserId = this.currUserId;
     console.log(currUserId);
     this.router.navigate(['student/application',{currUserId}]);
+  }
+
+  private navigateToPenalty() {
+    const currUserId = this.currUserId;
+    console.log(currUserId);
+    this.router.navigate(['student/penalty',{currUserId}]);
+  }
+
+  navigateToLoginPage() {
+    alert("Are you sure want to logout?")
+    this.router.navigate(['/login']);
   }
 
   

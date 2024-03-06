@@ -17,6 +17,8 @@ import { StudentBookListComponent } from './pages/student/book-list/book-list.co
 import { StudentApplicationComponent } from './pages/student/application/application.component';
 import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
 import { BookListComponent } from './pages/teacher/book-list/book-list.component';
+import { StudentPenaltyListComponent } from './pages/student/student-penalty-list/student-penalty-list.component';
+import { BookListFormComponent } from './pages/teacher/book-list-form/book-list-form.component';
 
 export const routes: Routes = [
 
@@ -69,6 +71,11 @@ export const routes: Routes = [
         title: 'Student Profile'
     },
     {
+        path: 'student/penalty',
+        component: StudentPenaltyListComponent,
+        title: 'Student Penalty List'
+    },
+    {
         path: 'teacher/welcome',
         component: TeacherWelcomeComponent,
         title: 'Teacher Welcome'
@@ -102,6 +109,11 @@ export const routes: Routes = [
         path: 'teacher/book-list',
         component: BookListComponent,
         title: 'Book List'
+    },
+    {
+        path: 'teacher/book-list/form',
+        component: BookListFormComponent,
+        title: 'Book List Form'
     }
 
 ];

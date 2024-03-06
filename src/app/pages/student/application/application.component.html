@@ -1,1 +1,42 @@
-<p>application({{currUserId}}) works!</p>
+<app-students-header [currUserId]="currUserId"></app-students-header>
+<div *ngIf="loanDetailsByUserId.length;else elseBlock" class="main-container">
+
+    <h1>Active Application</h1>
+    <div class="card">
+        <p-table [value]="loanDetailsByUserId" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Loan ID</th>
+                    <th>Book Title</th>
+                    <th>Loan Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-loan>
+                <tr>
+                    <td>{{ loan.loanId }}</td>
+                    <td>{{ loan.bookTitle }}</td>
+                    <td>{{ loan.loanDate }}</td>
+                    <td>{{ loan.dueDate }}</td>
+                    <td>{{ loan.returnDate? loan.returnDate : "N/A" }}</td>
+                    <td>{{ loan.status }}</td>
+                    <td *ngIf="loan.status != 'APPROVED';else elseBlock"><p-button (onClick)="onClick(loan)"
+                            label="Delete" severity="danger" [raised]="true"></p-button></td>
+                    <ng-template #elseBlock>
+                        <td>N/A</td>
+                    </ng-template>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="blank-container">
+        <p>You dont have any active application</p>
+        <p-button label="Go to book list" [raised]="true" (onClick)="navigateToBookList()"></p-button>
+    </div>
+</ng-template>
