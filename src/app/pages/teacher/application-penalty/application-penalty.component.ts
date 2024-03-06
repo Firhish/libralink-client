@@ -58,9 +58,9 @@ export class ApplicationPenaltyComponent implements OnInit{
   getLoanDetails(){
     this.loanDetailService.getLoanDetails().subscribe((loanDetails)=>{
       this.loanDetails = loanDetails;
-      this.populateUserUsername();
-      this.populateStudentGrade(); 
-      this.populateBookTitles();
+      // this.populateUserUsername();
+      // this.populateStudentGrade(); 
+      // this.populateBookTitles();
     })
   }
 
