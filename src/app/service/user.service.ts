@@ -15,6 +15,11 @@ export class UserService {
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.serverHost + "/get-all")
   }
+  
+  // salwa
+  getUserNameById(id:string): Observable<User>{
+    return this.http.get<User>(this.serverHost + "/get-by-id/" + id)
+  }
 
   getUserById(id:string|null): Observable<any>{
     return this.http.get<any>(this.serverHost + "/get-by-id/" + id)
@@ -27,5 +32,8 @@ export class UserService {
   addUser(user: any): Observable<any>{
     return this.http.post(this.serverHost + "/add", user);
   }
+
+
+
 
 }
