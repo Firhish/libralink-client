@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['teacher/welcome',{userId}]);
         } else {
           alert("Login successfully!");
-          this.router.navigate(['admin/welcome',{userId}]);
+          this.router.navigate(['admin/student-list',{userId}]);
         }
       } else {
         alert("User not found, Please enter correct email and password!");

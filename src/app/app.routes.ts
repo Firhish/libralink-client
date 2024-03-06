@@ -17,8 +17,9 @@ import { StudentBookListComponent } from './pages/student/book-list/book-list.co
 import { StudentApplicationComponent } from './pages/student/application/application.component';
 import { ApplicationPenaltyComponent } from './pages/teacher/application-penalty/application-penalty.component';
 import { BookListComponent } from './pages/teacher/book-list/book-list.component';
+import { StudentListComponent } from './pages/admin/student-list/student-list.component';
+import { TeacherListComponent } from './pages/admin/teacher-list/teacher-list.component';
 import { StudentPenaltyListComponent } from './pages/student/student-penalty-list/student-penalty-list.component';
-import { BookListFormComponent } from './pages/teacher/book-list-form/book-list-form.component';
 
 export const routes: Routes = [
 
@@ -81,11 +82,6 @@ export const routes: Routes = [
         title: 'Teacher Welcome'
     },
     {
-        path: 'admin/welcome',
-        component: AdminWelcomeComponent,
-        title: 'Admin Welcome'
-    },
-    {
         path: 'teacher/application',
         component: TeacherApplicationComponent,
         title: 'Teacher Application'
@@ -110,10 +106,25 @@ export const routes: Routes = [
         component: BookListComponent,
         title: 'Book List'
     },
+
+    // ADMIN
+
     {
-        path: 'teacher/book-list/form',
-        component: BookListFormComponent,
-        title: 'Book List Form'
-    }
+        path: 'admin/welcome',
+        component: AdminWelcomeComponent,
+        title: 'Admin Welcome'
+    },
+    {
+        path: 'admin/student-list',
+        component: StudentListComponent,
+        title: 'List of Students'
+    },
+    {
+        path: 'admin/teacher-list',
+        component: TeacherListComponent,
+        title: 'List of Teachers'
+    },
+
+
 
 ];
