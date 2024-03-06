@@ -58,6 +58,9 @@ export class ApplicationPenaltyComponent implements OnInit{
   getLoanDetails(){
     this.loanDetailService.getLoanDetails().subscribe((loanDetails)=>{
       this.loanDetails = loanDetails;
+      this.populateUserUsername();
+      this.populateStudentGrade(); 
+      this.populateBookTitles();
     })
   }
 
@@ -121,17 +124,17 @@ export class ApplicationPenaltyComponent implements OnInit{
     return book ? book.title : '';
   }
 
-  payLoan(penaltyId: number) {
-    this.penaltyService.updatePaymentStatusById(penaltyId).subscribe(() => {
-      this.getPenalties();
-    });
-  }
-
   // payLoan(penaltyId: number) {
-  //   this.penaltyService.updatePaymentStatusById(penaltyId, true).subscribe(() => {
+  //   this.penaltyService.updatePaymentStatusById(penaltyId).subscribe(() => {
   //     this.getPenalties();
   //   });
   // }
+
+  payLoan(penaltyId: number) {
+    this.penaltyService.updatePaymentStatusById(penaltyId, true).subscribe(() => {
+      this.getPenalties();
+    });
+  }
 
   
 }
