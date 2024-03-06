@@ -42,10 +42,11 @@ export class LoginComponent implements OnInit {
 
       if (res != null) {
         const userId = res.userId;
+        const currUserId = userId;
         if (res.role == "student") {
           alert("Login successfully!");
-          this.router.navigate(['student/welcome',{userId}]);
-          // this.router.navigate(['student/application',{userId}]);
+          // this.router.navigate(['student/welcome',{userId}]);
+          this.router.navigate(['student/application',{currUserId}]);
         } else if (res.role == "teacher") {
           alert("Login successfully!");
           // this.router.navigate(['teacher/welcome',{userId}]);

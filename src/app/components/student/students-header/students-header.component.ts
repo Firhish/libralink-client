@@ -63,9 +63,14 @@ export class StudentsHeaderComponent {
     this.router.navigate(['student/penalty',{currUserId}]);
   }
 
-  navigateToLoginPage() {
+  navigateToLandingPage() {
     alert("Are you sure want to logout?")
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
+  }
+
+  navigateToProfilePage() {
+    const currUserId = this.currUserId;
+    this.router.navigate(['student/profile',{currUserId}]);
   }
 
   
